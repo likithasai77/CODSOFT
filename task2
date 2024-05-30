@@ -1,0 +1,56 @@
+def get_number(prompt): 
+  while True:
+    try:
+      number = float(input(prompt))
+      return number
+    except ValueError:
+      print("Invalid input. Please enter a number.")
+
+def get_operation(): 
+  while True:
+    operation = input("Choose an operation (+, -, *, /): ")
+    if operation in ["+", "-", "*", "/"]:
+      return operation
+    else:
+      print("Invalid operation. Please choose +, -, *, or /.")
+
+def calculate(num1, num2, operation):
+  if operation == "+":
+    return num1 + num2
+  elif operation == "-":
+    return num1 - num2
+  elif operation == "*":
+    return num1 * num2
+  elif operation == "/":
+    if num2 == 0:
+      print("Error: Division by zero!")
+      return None 
+    else:
+      return num1 / num2
+
+def main():
+  while True:
+    num1 = get_number("Enter the first number: ")
+    num2 = get_number("Enter the second number: ")
+    operation = get_operation()
+
+    
+    result = calculate(num1, num2, operation)
+
+    
+    if result is not None:
+      print(f"{num1} {operation} {num2} = {result}")
+    else:
+      print("Please enter a valid operation.")
+
+  
+    choice = input("Do you want to perform another calculation? (y/n): ").lower()
+    if choice != 'y':
+      break
+
+  print("Thanks for using the calculator!")
+if __name__==__name__:
+        main()
+
+
+
